@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "discotify"
+version = "1.0.0"
+description = "Send Discord Notifications from shell or python. You can use system saved aliases for the webhook and userIDs"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Yavor Vidolov", email = "yavorvvv@gmail.com"}
+]
+dependencies = [
+    "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "mypy",
+]
+
+[project.scripts]
+discotify = "discotify.main:main"
+
+[project.urls]
+Homepage = "https://github.com/yvvidolov/discotify"
+Repository = "https://github.com/yvvidolov/discotify.git"
+Issues = "https://github.com/yvvidolov/discotify/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+omit = [
+    "tests/*",
+]
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
